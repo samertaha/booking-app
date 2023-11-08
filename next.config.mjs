@@ -3,7 +3,7 @@
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
  * This is especially useful for Docker builds.
  */
-!process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
+!process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"))
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -13,5 +13,20 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
-};
-export default config;
+  images: {
+    minimumCacheTTL: 60,
+    domains: [
+      "source.unsplash.com",
+      "googleusercontent.com",
+      "lh3.googleusercontent.com",
+      "*.amazonaws.com", // Allow all S3 buckets under conatins amazonaws.com
+    ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*",
+      },
+    ],
+  },
+}
+export default config

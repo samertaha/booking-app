@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, FC, useState } from "react";
 import { HiLockClosed } from "react-icons/hi";
-import { trpc } from "~/utils/trpc";
+import { trpc } from "@/utils/trpc";
 
 interface loginProps {}
 
-const login: FC<loginProps> = ({ }) => {
-  const router = useRouter()
+const login: FC<loginProps> = ({}) => {
+  const router = useRouter();
   const [input, setInput] = useState({
     email: "",
     password: "",
@@ -22,7 +22,7 @@ const login: FC<loginProps> = ({ }) => {
 
   const { mutate: login, isError } = trpc.admin.login.useMutation({
     onSuccess: (data) => {
-      router.push('/dashboard')
+      router.push("/dashboard");
     },
   });
 

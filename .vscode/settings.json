@@ -1,9 +1,20 @@
 {
-    "workbench.colorCustomizations": {
-        "terminal.foreground": "#00FD61",
-        "terminal.background": "#383737",
-        "activityBar.background": "#5D0C1D",
-        "titleBar.activeBackground": "#821128",
-        "titleBar.activeForeground": "#FFFBFC"
-    }
+  "workbench.colorCustomizations": {
+    "terminal.foreground": "#00FD61",
+    "terminal.background": "#383737",
+    "activityBar.background": "#5D0C1D",
+    "titleBar.activeBackground": "#821128",
+    "titleBar.activeForeground": "#FFFBFC"
+  },
+  "autoimport.semicolon": false,
+  "autoimport.useSemiColon": false,
+  "prettier.semi": false,
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "typescript.format.semicolons": "remove",
+  "javascript.format.semicolons": "remove",
+  "prettier-eslint-typescript.eslintConfig": {},
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
 }

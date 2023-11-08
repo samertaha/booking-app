@@ -1,7 +1,18 @@
+"use client";
 import Head from "next/head";
-import Calendar from "~/components/Calendar";
+import { useState } from "react";
+import Calendar from "@/components/Calendar";
+import { type DateTime } from "@types";
+import { NextPage } from "next";
+import Spinner from "@/components/Spinner";
+import Menu from "@/components/Menu"
 
-export default function Home() {
+const Home: NextPage = () => {
+  const [date, setDate] = useState<DateTime>({
+    jusDate: null,
+    dateTime: null,
+  });
+
   return (
     <>
       <Head>
@@ -10,8 +21,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Calendar />
+        {!date.dateTime && <Calendar setDate={setDate} date={date} />}
+        {date.dateTime && false ? (
+          <Menu />
+        ) : (
+          <div className="flex h-screen items-center justify-center">
+            <Spinner />
+          </div>
+        )}
       </main>
     </>
   );
-}
+};
+
+export default Home;
