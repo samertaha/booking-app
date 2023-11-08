@@ -14,19 +14,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    minimumCacheTTL: 60,
-    domains: [
-      "source.unsplash.com",
-      "googleusercontent.com",
-      "lh3.googleusercontent.com",
-      "*.amazonaws.com", // Allow all S3 buckets under conatins amazonaws.com
-    ],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*",
-      },
-    ],
-  },
+    domains: ["https://booking-app-implementation.s3.me-south-1.amazonaws.com"],
+  }
 }
 export default config
