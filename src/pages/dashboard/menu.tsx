@@ -132,11 +132,11 @@ const menu: FC<menuProps> = ({}) => {
             name="price"
             className="h-12 rounded-sm border-none bg-gray-200"
             type="number"
-            placeholder="price"
+            placeholder={input.price===0?"price":"0"}
             onChange={(e) =>
               setInput((prev) => ({ ...prev, price: Number(e.target.value) }))
             }
-            value={input.price}
+            value={(input.price===0)?undefined:input.price}
           />
 
           <DynamicSelect
@@ -194,7 +194,13 @@ const menu: FC<menuProps> = ({}) => {
               <div key={menuItem.id}>
                 <p>{menuItem.name}</p>
                 <div className="relative h-40 w-40">
-                  <Image priority fill alt="" src={menuItem.url} />
+                  <Image
+                    priority
+                    fill
+                    alt=""
+                    src={menuItem.url}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                 </div>
                 <button
                   onClick={() => handleDelete(menuItem.imageKey, menuItem.id)}

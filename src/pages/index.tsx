@@ -1,18 +1,15 @@
-"use client";
-import Head from "next/head";
-import { useState } from "react";
-import Calendar from "@/components/Calendar";
-import { type DateTime } from "@types";
+import { formatISO } from "date-fns";
 import { NextPage } from "next";
-import Spinner from "@/components/Spinner";
-import Menu from "@/components/Menu"
+import Head from "next/head";
+import Calendar from "@/components/Calendar";
+import { prisma } from "@/server/db/client";
 
-const Home: NextPage = () => {
-  const [date, setDate] = useState<DateTime>({
-    jusDate: null,
-    dateTime: null,
-  });
+interface HomeProps {
+  days: Day[];
+  closedDays: string[]; // as ISO string
+}
 
+const Home: NextPage<HomeProps> = ({ days, closedDays }) => {
   return (
     <>
       <Head>
@@ -21,17 +18,24 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {!date.dateTime && <Calendar setDate={setDate} date={date} />}
-        {date.dateTime && false ? (
-          <Menu />
-        ) : (
-          <div className="flex h-screen items-center justify-center">
-            <Spinner />
-          </div>
-        )}
+        <Calendar days={days} closedDays={closedDays} />
       </main>
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const days = await prisma?.day.findMany();
+  const closedDays = (await prisma?.closedDay.findMany())?.map((d) => {
+    formatISO(d.date);
+  });
+
+  return {
+    props: {
+      days,
+      closedDays,
+    },
+  };
+}
 
 export default Home;

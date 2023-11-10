@@ -19,9 +19,10 @@
     "paths": {
       "@types": ["src/utils/types"],
       "@/*": ["src/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@components/*": ["src/components/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "next.config.mjs"],
   "exclude": ["node_modules"]
 }

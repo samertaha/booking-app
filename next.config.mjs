@@ -14,7 +14,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["https://booking-app-implementation.s3.me-south-1.amazonaws.com"],
+    domains: ["booking-app-implementation.s3.me-south-1.amazonaws.com"],
   }
 }
 export default config
