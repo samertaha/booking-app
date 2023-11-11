@@ -9,9 +9,7 @@ import { trpc } from "@/utils/trpc";
 import { AnyLengthString } from "aws-sdk/clients/comprehend";
 import { Categories } from "@types";
 
-const DynamicSelect = dynamic(() => import("react-select"), {
-  ssr: false,
-});
+const DynamicSelect = dynamic(() => import("react-select"), { ssr: false });
 
 interface menuProps {}
 

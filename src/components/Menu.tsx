@@ -1,12 +1,14 @@
 import { capitalize, selectOptions } from "@/utils/helpers";
 import { trpc } from "@/utils/trpc";
 import Image from "next/image";
-import { FC, useState } from "react";
 import Select from "react-select";
+import { FC, useState } from "react";
 
-interface MenuProps {}
+interface MenuProps {
+selectedTime: string // as Iso string
+}
 
-const Menu: FC<MenuProps> = ({}) => {
+const Menu: FC<MenuProps> = ({selectedTime}) => {
   const { data: menuItems } = trpc.menu.getMenuItems.useQuery();
   const [filter, setFilter] = useState<undefined | string>("");
 

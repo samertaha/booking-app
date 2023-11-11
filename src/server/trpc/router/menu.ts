@@ -21,7 +21,7 @@ export const menuRouter = router({
         return withUrls
     }),
    
-    checkMenuStatus: publicProcedure.mutation(async () => {
+    checkMenuStatus: publicProcedure.query(async () => {
         await sleep(1000)
 
         return {success: true}

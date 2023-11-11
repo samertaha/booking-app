@@ -1,6 +1,6 @@
-import { adminProcedure, router } from "../trpc";
-import { z } from "zod";
-import { formatISO } from "date-fns";
+import { adminProcedure, router } from '../trpc'
+import { z } from 'zod'
+import { formatISO } from 'date-fns'
 
 export const openingRouter = router({
   /**
@@ -31,13 +31,13 @@ export const openingRouter = router({
               closeTime: day.closeTime,
               openTime: day.openTime,
             },
-          });
+          })
 
-          return updatedDay;
+          return updatedDay
         })
-      );
+      )
 
-      return results;
+      return results
     }),
 
   /**
@@ -45,30 +45,26 @@ export const openingRouter = router({
    * @param date Date to close
    */
 
-  closeDay: adminProcedure
-    .input(z.object({ date: z.date() }))
-    .mutation(async ({ ctx, input }) => {
-      await ctx.prisma.closedDay.create({
-        data: {
-          date: input.date,
-        },
-      });
-    }),
+  closeDay: adminProcedure.input(z.object({ date: z.date() })).mutation(async ({ ctx, input }) => {
+    await ctx.prisma.closedDay.create({
+      data: {
+        date: input.date,
+      },
+    })
+  }),
 
   /**
    * Method to open a previously closed day, so appointments can be made
    * @param date Date to open
    */
 
-  openDay: adminProcedure
-    .input(z.object({ date: z.date() }))
-    .mutation(async ({ ctx, input }) => {
-      await ctx.prisma.closedDay.delete({
-        where: {
-          date: input.date,
-        },
-      });
-    }),
+  openDay: adminProcedure.input(z.object({ date: z.date() })).mutation(async ({ ctx, input }) => {
+    await ctx.prisma.closedDay.delete({
+      where: {
+        date: input.date,
+      },
+    })
+  }),
 
   /**
    * Method to get all closed days
@@ -77,8 +73,8 @@ export const openingRouter = router({
    */
 
   getClosedDays: adminProcedure.query(async ({ ctx }) => {
-    const closedDays = await ctx.prisma.closedDay.findMany();
+    const closedDays = await ctx.prisma.closedDay.findMany()
 
-    return closedDays.map((d) => formatISO(d.date));
+    return closedDays.map((d) => formatISO(d.date))
   }),
-});
+})

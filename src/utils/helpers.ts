@@ -82,7 +82,7 @@ export const getOpeningTimes = (startDate: Date, dbDays: Day[]) => {
     hours,
     minutes,
   });
-  const end = add(startDate, { hours: getHours(closing) });
+  const end = add(startDate, { hours: getHours(closing), minutes: getMinutes(closing) });
   const interval = OPENING_HOURS_INTERVAL; // in minutes
 
   // from beginning to end, every interval, generate a date and put that into an array
