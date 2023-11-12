@@ -80,6 +80,8 @@ const Opening: FC<OpeningProps> = ({ days }) => {
         <div className='my-12 flex flex-col gap-8'>
           {days.map((day) => {
             const changeTime = _changeTime(day)
+            console.log(openingHrs.map((day) => (days.findIndex((d) => d.name === day.name)
+            )))
             return (
               <div className='grid grid-cols-3 place-items-center' key={day.id}>
                 <h3 className='font-semibold'>{capitalize(weekdayIndexToName(day.dayOfWeek)!)}</h3>
@@ -88,8 +90,7 @@ const Opening: FC<OpeningProps> = ({ days }) => {
                     type='openTime'
                     changeTime={changeTime}
                     selected={
-                      openingHrs[openingHrs.findIndex((x) => x.name === weekdayIndexToName(day.dayOfWeek))]
-                        ?.openTime
+                      openingHrs[openingHrs.findIndex((x) => x.name === weekdayIndexToName(day.dayOfWeek))]?.openTime
                     }
                   />
                 </div>
@@ -154,8 +155,8 @@ const Opening: FC<OpeningProps> = ({ days }) => {
 }
 
 export async function getServerSideProps() {
-  const days = await prisma.day.findMany()
-
+  const days = await prisma.day.findMany({})
+  
   if (!(days.length === 7)) throw new Error('Insert all days into database')
 
   return { props: { days } }

@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { useRouter } from 'next/router'
 import { Fragment, type Dispatch, type FC, type SetStateAction } from 'react'
 import { HiX } from 'react-icons/hi'
-import { capitalize } from 'src/utils/helper'
+import { capitalize } from '@/utils/helpers'
 import { trpc } from 'src/utils/trpc'
 
 interface CartProps {

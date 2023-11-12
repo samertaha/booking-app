@@ -1,7 +1,7 @@
 import { formatISO } from "date-fns";
 import { NextPage } from "next";
 import Head from "next/head";
-import Calendar from "@/components/Calendar";
+import CalendarComponent from '@/components/Calendar'
 import { prisma } from "@/server/db/client";
 
 interface HomeProps {
@@ -18,7 +18,7 @@ const Home: NextPage<HomeProps> = ({ days, closedDays }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Calendar days={days} closedDays={closedDays} />
+        <CalendarComponent days={days} closedDays={closedDays} />
       </main>
     </>
   );
@@ -26,10 +26,9 @@ const Home: NextPage<HomeProps> = ({ days, closedDays }) => {
 
 export async function getServerSideProps() {
   const days = await prisma?.day.findMany();
-  const closedDays = (await prisma?.closedDay.findMany())?.map((d) => {
-    formatISO(d.date);
-  });
-
+  const closedDays = (await prisma?.closedDay.findMany())?.map((d) => formatISO(d.date)
+  )
+  console.log("days:", days)
   return {
     props: {
       days,

@@ -1,14 +1,17 @@
-import { type AppType } from "next/app";
+import { ChakraProvider } from '@chakra-ui/react'
+import { type AppType } from 'next/app'
+import { trpc } from 'src/utils/trpc'
 
-import { trpc } from "../utils/trpc";
-
-import "@/styles/globals.css";
-import "@/styles/Calendar.css";
-import "@/styles/Spinner.css";
-import { ChakraProvider } from "@chakra-ui/react"
+import '../components/Calendar.css'
+import '../styles/globals.css'
+import '../styles/Spinner.css'
 
 const MyApp: AppType = ({ Component, pageProps }) => {
-  return <ChakraProvider><Component {...pageProps} /></ChakraProvider>
-};
+  return (
+    <ChakraProvider>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  )
+}
 
-export default trpc.withTRPC(MyApp);
+export default trpc.withTRPC(MyApp)

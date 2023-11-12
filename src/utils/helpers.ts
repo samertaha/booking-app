@@ -20,13 +20,13 @@ export const selectOptions = categories.map((category) => ({
 
 export const weekdayIndexToName = (index: number) =>
   [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
   ][index];
 
 export function classNames(...classes: string[]) {
