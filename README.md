@@ -35,7 +35,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 5. npm run dev locally or deploy to vercel.
 
 ## DEMO
-[Food ordering app]()
+online demo link will be supplied only per request will be live for 8 hours only because its served from localhost to the internet through ngrok.com reverse proxy service.
 
 ## contributors
 ###### Samer taha
