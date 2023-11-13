@@ -1,28 +1,41 @@
-# Create T3 App
+# Restaurant ordering app
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
-## What's next? How do I make an app with this?
-
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
-
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## used React.js and Next.js libraries :
 
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
 - [Prisma](https://prisma.io)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
+- [T3 Stack](https://create.t3.gg/)
 
-## Learn More
+# REAL TIME CHAT APP
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+#### "a full stack food ordering app that start with chosing date and time for collecting the order or eating it on the restaurant the owner can manage times and dates on the dashboard people can add to the cart and checkout using credit card."
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## FEATURES
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+- chose time and date for the order
+- as admin log in to the /dashboard
+- decide wich days and times you will open and close
+- users will not be able to do orders on the days you specified
+- add menu items to the cart and check out with stripe.
+- use 4242 4242 4242 4242 for visa payment testing
 
-## How do I deploy this?
+## STACK USED / DEPENDENCIES
+###### Next.js, Next-Auth, Aws S3, vercel postegres sql db,Tailwind css, Prisma ORM,tRPC API library, T3 stack, Stripe payment gateway api.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+## Local development setup
+1. npm install.
+2. fill the .env according to the .env.example file env variables.
+3. open new github app on github auth0 and get the secret and access keys.
+4. create free postegres sql database on vercel get the URL.
+5. npm run dev locally or deploy to vercel.
+
+## DEMO
+[Food ordering app]()
+
+## contributors
+###### Samer taha
