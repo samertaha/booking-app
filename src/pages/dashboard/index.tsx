@@ -1,22 +1,17 @@
-import { FC } from "react";
-import { trpc } from "@/utils/trpc";
-import Link from "next/link";
+import Link from 'next/link'
+import type { FC } from 'react'
 
-interface dashboardProps {}
-
-const dashboard: FC<dashboardProps> = ({}) => {
-  const { mutate } = trpc.admin.sensitive.useMutation();
-
+const dashboard: FC = () => {
   return (
-    <div className="gar-8 flex h-screen w-full items-center justify-center font-medium">
-      <Link className="rounded-md bg-gray-100 p-2" href="/dashboard/opening">
+    <div className='flex h-screen w-full items-center justify-center gap-8 font-medium'>
+      <Link className='rounded-md bg-gray-100 p-2' href='/dashboard/opening'>
         Opening hours
       </Link>
-      <Link className="rounded-md bg-gray-100 p-2" href="/dashboard/menu">
+      <Link className='rounded-md bg-gray-100 p-2' href='/dashboard/menu'>
         Menu
       </Link>
     </div>
-  );
-};
+  )
+}
 
-export default dashboard;
+export default dashboard
