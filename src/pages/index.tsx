@@ -3,7 +3,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import CalendarComponent from '@/components/Calendar'
 import { prisma } from "@/server/db/client"
-import type { Day } from '@prisma/client'
+//import type { Day } from '@prisma/client'
 
 
 interface HomeProps {
