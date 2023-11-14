@@ -12,6 +12,7 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ days, closedDays }) => {
+  console.log("all days : ", days , 'closed days:' , closedDays)
   return (
     <>
       <Head>
