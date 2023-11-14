@@ -64,8 +64,8 @@ export const checkoutRouter = router({
               },
             },
           ],
-          success_url: `http://localhost:3000/success`,
-          cancel_url: `http://localhost:3000/menu`,
+          success_url: "https://booking-app-git-main-samertaha.vercel.app/success",
+          cancel_url: "https://booking-app-git-main-samertaha.vercel.app/menu",
         })
 
         return {
