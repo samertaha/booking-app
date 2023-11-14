@@ -1,9 +1,9 @@
-import CalendarComponent from '@components/Calendar'
-import type { Day } from '@prisma/client'
 import { formatISO } from 'date-fns'
-import { type NextPage } from 'next'
+import { NextPage } from 'next'
 import Head from 'next/head'
+import CalendarComponent from '@components/Calendar'
 import { prisma } from '../server/db/client'
+import type { Day } from '@prisma/client'
 // my great comment
 
 interface HomeProps {
@@ -16,7 +16,7 @@ const Home: NextPage<HomeProps> = ({ days, closedDays }) => {
     <>
       <Head>
         <title>Booking Software</title>
-        <meta name='description' content='by josh' />
+        <meta name='description' content='nextjs' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
@@ -30,7 +30,7 @@ const Home: NextPage<HomeProps> = ({ days, closedDays }) => {
 export async function getServerSideProps() {
   const days = await prisma.day.findMany()
   const closedDays = (await prisma.closedDay.findMany()).map((d) => formatISO(d.date))
-  return { props: { days, closedDays } }
+  return { props: { days, closedDays, }, }
 }
 
 export default Home
