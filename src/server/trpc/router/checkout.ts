@@ -64,8 +64,8 @@ export const checkoutRouter = router({
               },
             },
           ],
-          success_url: `${process.env.VERCEL_URL}/success`,
-          cancel_url: `${process.env.VERCEL_URL}/menu`,
+          success_url: `http://localhost:3000/success`,
+          cancel_url: `http://localhost:3000/menu`,
         })
 
         return {
